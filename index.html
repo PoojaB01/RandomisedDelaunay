@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Delaunay Triangulation</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navigation">
+        <div id="reset" class="button" onclick="reset()">
+            <img class="icon" src="assets/icons/replay-white-18dp.svg"> Reset
+        </div>
+        <div id="run" class="button disable" onclick="makeTriangulation()">
+            <img class="icon" src="assets/icons/play_circle_outline-white-18dp.svg"> Run
+        </div>
+        <div id="addpoint" class="button disable" onclick="addPoints()">
+            <img class="icon" src="assets/icons/add_circle_outline-white-18dp.svg"> Add
+        </div>
+        <div id="hide" class="button" onclick="toggleVis()">
+            <img class="icon" src="assets/icons/hide_source-white-18dp.svg"> Hide
+        </div>
+        <div id="speed">
+            <div class="button">
+                <img class="icon" src="assets/icons/speed-white-18dp.svg"> Speed
+            </div>
+        </div>
+
+        <div class="speed-slider">
+            <div class="dialogue">
+                <input type="range" id="slider" value="7000" min="0" max="8000" step="100" onchange="setWait(this.value)">
+            </div>
+        </div>
+
+        <div id="other-graphs">
+            <div class="button">
+                <img class="icon" src="assets/icons/scatter_plot-white-18dp.svg"> More
+            </div>
+        </div>
+
+        <div class="graph-selector">
+            <div class="dialogue">
+                <form id="graph-form">
+                    <input type="radio" id="voronoi" name="graph-selection" value="voronoi" onchange="radioChange()">
+                    <label for="voronoi">Voronoi Diagram</label><br>
+                    <input type="radio" id="convex-hull" name="graph-selection" value="convex-hull" onchange="radioChange()">
+                    <label for="convex-hull">Convex Hull</label><br>
+                    <input type="radio" id="none" name="graph-selection" value="none" checked="checked" onchange="radioChange()">
+                    <label for="none">None</label><br>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main id="board">
+
+    </main>
+    <script src="Bowyer.js"></script>
+</body>
+
+</html>
